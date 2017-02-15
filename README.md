@@ -121,14 +121,10 @@ sendClose: send close frame to endpoint
 
 ---------------------
 The MIT License (MIT)
-
-
-
 # 新增的生产者/消费者模式的例子
 
 ``` python
  python MySimpleExampleServer.py
-
 ```
 
 websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html页面
@@ -139,3 +135,8 @@ websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html
  - **断开** 断开websocket
  - **连接** 连接websocket
 
+先点“连接”，然后再点“开启联通解析”，即可查看效果
+
+生产者线程负责产生消息放入消息队列，消费者线程负责从消息队列中读取消息，并广播到websocket接口，浏览器通过websocket接收并显示
+
+生产者线程和消费者线程作为后台常驻线程一直存在
