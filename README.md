@@ -121,3 +121,21 @@ sendClose: send close frame to endpoint
 
 ---------------------
 The MIT License (MIT)
+
+
+
+# 新增的生产者/消费者模式的例子
+
+``` python
+ python MySimpleExampleServer.py
+
+```
+
+websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html页面
+
+ - **开启联通解析** 开启联通解析开关，发送 unicom: true
+ - **关闭联通解析** 关闭联通解析开关，发送 unicom: false
+ - **清除** 清除textarea中的内容
+ - **断开** 断开websocket
+ - **连接** 连接websocket
+
