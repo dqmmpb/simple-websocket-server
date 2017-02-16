@@ -121,6 +121,7 @@ sendClose: send close frame to endpoint
 
 ---------------------
 The MIT License (MIT)
+
 # 新增的生产者/消费者模式的例子
 
 ``` python
@@ -152,11 +153,11 @@ websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html
 `MySimpleFileServerWithTail.py`负责使用websocket和浏览器通讯
 
 ``` python
-        # 使用tail插件完成`tail -f`的功能
-        t = tail.Tail('thefile.txt')
-        # 注册回调，将消息广播给client客户端
-        t.register_callback(broadcastMessage)
-        t.follow(s=2)
+  # 使用tail插件完成`tail -f`的功能
+  t = tail.Tail('thefile.txt')
+  # 注册回调，将消息广播给client客户端
+  t.register_callback(broadcastMessage)
+  t.follow(s=2)
 ```
 
 ## 使用
@@ -165,14 +166,12 @@ websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html
 
 ``` python
  python MySimpleFileServerWithTail.py
-
 ```
 
 启动 文件Write
 
 ``` python
  python FileWrite.py
-
 ```
 
 websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html页面
