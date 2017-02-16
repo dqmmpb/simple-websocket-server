@@ -140,3 +140,40 @@ websocket的默认端口是8000，启动后，用浏览器打开mywebsocket.html
 生产者线程负责产生消息放入消息队列，消费者线程负责从消息队列中读取消息，并广播到websocket接口，浏览器通过websocket接收并显示
 
 生产者线程和消费者线程作为后台常驻线程一直存在
+
+
+
+# 生产者/消费者模式 使用文件
+
+依赖[python-tail][python-tail]插件实现`tail -f`功能
+请参考[python-tail][python-tail]插件的安装
+
+`FileWriter.py`负责写文件  
+`MySimpleFileServerWithTail.py`负责使用websocket和浏览器通讯
+
+``` python
+        # 使用tail插件完成`tail -f`的功能
+        t = tail.Tail('thefile.txt')
+        # 注册回调，将消息广播给client客户端
+        t.register_callback(broadcastMessage)
+        t.follow(s=2)
+```
+
+## 使用
+
+启动 server
+
+``` python
+ python MySimpleFileServerWithTail.py
+
+```
+
+启动 文件Write
+
+``` python
+ python FileWrite.py
+
+```
+
+
+[python-tail]: https://github.com/kasun/python-tail
