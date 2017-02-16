@@ -5,7 +5,6 @@ The MIT License (MIT)
 Copyright (c) 2013 Dave P.
 '''
 
-
 import signal
 import sys
 import json
@@ -26,6 +25,7 @@ is_exit = False
 
 file_object = open('thefile.txt', 'a+')
 
+
 # 产生消息，将消息放入消息队列中，当消息队列已满后，暂停产生，每2秒检测以下消息队列
 class Producer(threading.Thread):
     def __init__(self):
@@ -34,6 +34,7 @@ class Producer(threading.Thread):
 
     def run(self):
         self.doProduct()
+
     def doProduct(self):
         global condition
 
@@ -43,7 +44,7 @@ class Producer(threading.Thread):
                     condition.notifyAll()
                     condition.relase()
                     break
-                message =  "新消息，发送时间" + time.strftime('%Y-%m-%d %H:%M:%S')
+                message = "新消息，发送时间" + time.strftime('%Y-%m-%d %H:%M:%S')
                 file_object.writelines([message + '\n'])
                 file_object.flush()
                 print ("{}：产生1条新消息，消息内容：{}".format(self.getName(), message))
@@ -53,8 +54,6 @@ class Producer(threading.Thread):
 
 
 if __name__ == "__main__":
-
-
 
     # 生产者线程
     p = Producer()
@@ -68,6 +67,7 @@ if __name__ == "__main__":
 
         file_object.close()
         sys.exit()
+
 
     signal.signal(signal.SIGINT, close_sig_handler)
 

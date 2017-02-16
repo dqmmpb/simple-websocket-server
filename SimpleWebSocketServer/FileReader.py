@@ -33,6 +33,9 @@ class Consumer(threading.Thread):
         self.setName("消费者")
 
     def run(self):
+        self.doSend()
+
+    def doSend(self):
         global condition
 
         while True:

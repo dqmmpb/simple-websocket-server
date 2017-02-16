@@ -24,6 +24,7 @@ sys.setdefaultencoding('utf8')
 # 线程共享条件
 condition = threading.Condition()
 
+
 # 广播当前消息
 def broadcastMessage(message):
     message = message.strip()
@@ -55,7 +56,6 @@ class Consumer(threading.Thread):
             t.follow(s=2)
         except Exception as TailError:
             print 'error'
-
 
 
 class SimpleSend(WebSocket):
@@ -96,6 +96,7 @@ if __name__ == "__main__":
     c = Consumer()
     c.setDaemon(True)
     c.start()
+
 
     def close_sig_handler(signal, frame):
         server.close()
